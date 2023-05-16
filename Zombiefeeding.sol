@@ -36,8 +36,6 @@ contract ZombieFeeding is ZombieFactory {
 
   KittyInterface kittyContract = KittyInterface(ckAddress);
 
-  // Modify function definition here:
-
   function feedAndMultiply(uint _zombieId, uint _targetDna) public {
 
     require(msg.sender == zombieToOwner[_zombieId]);
@@ -48,8 +46,6 @@ contract ZombieFeeding is ZombieFactory {
 
     uint newDna = (myZombie.dna + _targetDna) / 2;
 
-    // Add an if statement here
-
     _createZombie("NoName", newDna);
 
   }
@@ -59,8 +55,6 @@ contract ZombieFeeding is ZombieFactory {
     uint kittyDna;
 
     (,,,,,,,,,kittyDna) = kittyContract.getKitty(_kittyId);
-
-    // And modify function call here:
 
     feedAndMultiply(_zombieId, kittyDna);
 
